@@ -14,7 +14,7 @@ import java.net.Socket;
  *
  * @author pontofrio
  */
-public class ClienteMultiTarefa {
+public class ClienteMultitarefa2 {
 
     public void enviarMensagem() {
 
@@ -28,13 +28,14 @@ public class ClienteMultiTarefa {
             while (true) {
                 socketCliente = new Socket("127.0.1", 6000);
                 paraServidor = new DataOutputStream(socketCliente.getOutputStream());
-
-                frase = "Mensagem " + contador;
+                
+                frase ="Cliente 2: " + "Mensagem " + contador;
                 contador++;
 
                 paraServidor.writeBytes(frase);
 
                 System.out.println("Mensagem enviada com Sucesso");
+                System.out.println(frase);
                 
                 socketCliente.close();
             }
@@ -44,7 +45,7 @@ public class ClienteMultiTarefa {
     }
 
     public static void main(String args[]) {
-        ClienteMultiTarefa clienteMultiTarefa = new ClienteMultiTarefa();
+        ClienteMultitarefa2 clienteMultiTarefa = new ClienteMultitarefa2();
         clienteMultiTarefa.enviarMensagem();
     }
 }
